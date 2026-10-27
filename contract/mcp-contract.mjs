@@ -252,7 +252,7 @@ export default {
     {
       "name": "propose_follow_up",
       "title": "Propose Follow-Up",
-      "description": "Draft a follow-up (calendar block, Zoom meeting, or reminder) from a memo's action items and open questions and surface it as an Action Bot chip in Wisply's Sidekick with a confirmation card. Proposal only: nothing is written unless the user confirms in Wisply. Requires Action Bot to be enabled in Wisply settings. Poll get_action_proposal_status for the outcome.",
+      "description": "Draft a follow-up (calendar block, Zoom meeting, or reminder) from a memo's action items and open questions and surface it as an Action Bot chip in Wisply's Sidekick with a confirmation card. Proposal only: nothing is written unless the user confirms in Wisply. Requires Action Bot to be enabled in Wisply settings. Full-access tokens poll get_action_proposal_status for the outcome; a recording-control token gets a receipt and the user sees the outcome in Wisply.",
       "inputSchema": {
         "type": "object",
         "additionalProperties": false,
