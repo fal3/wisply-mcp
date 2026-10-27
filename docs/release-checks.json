@@ -1,9 +1,9 @@
 {
   "schema": "wisply-mcp-release-checks-v1",
   "port_exclusive": {
-    "verified": false,
-    "wisply_commit": null,
-    "how": null
+    "verified": true,
+    "wisply_commit": "92f8939ed3208a69deaa112aa3aa74a67933d3a4",
+    "how": "2026-10-27: MCPServer.swift at the vendored app commit sets allowLocalEndpointReuse = false and binds IPv4 loopback. On macOS 27.0.1, signed TestFlight Wisply 1.11.0 build202610221510 refused second listeners both with and without SO_REUSEADDR/SO_REUSEPORT (EADDRINUSE). See docs/validation/live-mac-20261027.md."
   },
   "registry_namespace": {
     "name": "ai.wisply/local",
