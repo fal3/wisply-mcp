@@ -277,7 +277,7 @@ test('releaseSourceProblems: real checkouts on main pass, and each missing piece
 test('without both checkouts the maintainer\'s release check fails and names them; the release workflow skips it', { skip: RELEASE }, () => {
   const env = Object.fromEntries(Object.entries(process.env).filter(([name]) => !name.startsWith('GITHUB_') &&
     !['WISPLY_AI_DIR', 'WISPLY_PLUGIN_DIR', 'NODE_TEST_CONTEXT'].includes(name)));
-  const run = (extra) => spawnSync(process.execPath, ['--test', `--test-name-pattern=${RELEASE_SOURCES_TEST}`,
+  const run = (extra) => spawnSync(process.execPath, ['--test', '--test-reporter=tap', `--test-name-pattern=${RELEASE_SOURCES_TEST}`,
     fileURLToPath(import.meta.url)], { cwd: ROOT, env: { ...env, WISPLY_RELEASE: '1', ...extra }, encoding: 'utf8' });
   const local = run({});
   assert.notEqual(local.status, 0, local.stdout.slice(-2000));

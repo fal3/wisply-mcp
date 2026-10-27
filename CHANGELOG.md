@@ -204,13 +204,10 @@ registry entries and skill built from this repository.
 
 ### Known limitations
 
-- The contract comes from DIST-A1's commit 5e4d308 in wisply-ai, which is on
-  a branch, not yet on wisply-ai's `main`, so `contract/SOURCE.json` says
-  `"on_main": false`. Until `npm run sync-vendor` runs again from the main
-  commit that merges it (SECURITY.md, "Re-vendoring the contract") and the
-  npm name is Wisply's (`npm_scope` recorded in `docs/release-checks.json`),
-  `package.json` stays `"private"`, npm refuses to publish the package and
-  `WISPLY_RELEASE=1 npm test` fails.
+- The contract now comes from wisply-ai's `main`, but the remaining Mac,
+  namespace and npm security checks in `docs/release-checks.json` are
+  unfinished. `package.json` stays `"private"`, npm refuses to publish the
+  package and `WISPLY_RELEASE=1 npm test` fails until those checks pass.
 - The bundle's `fileSha256` in `server.json` is a placeholder until the
   release asset exists; `WISPLY_REGISTRY_RELEASE=1 npm test` refuses it, and
   refuses any hash without `WISPLY_MCPB_FILE`.
