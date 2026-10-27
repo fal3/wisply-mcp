@@ -131,8 +131,8 @@ spec text. Not shipped in the npm package.
   of `MCP_NAME` (`ai.wisply/local` needs DNS or HTTP proof on wisply.ai;
   the fallback is `io.github.fal3/wisply-mcp`), and (3) `npm_scope`, that
   the npm organization `@wisply` (or, for the fallback name, `wisply-mcp`)
-  is Wisply's with two-factor authentication required and `wisply-mcp` held
-  too (Grok packet G-NPM), with `PACKAGE_NAME_FINAL` true and `"private"`
+  is Wisply's with two-factor authentication required for every member
+  (Grok packet G-NPM), with `PACKAGE_NAME_FINAL` true and `"private"`
   gone from `package.json`; and while the vendored
   contract marks `setup_claude` `destructiveHint: false` (it replaces the
   Anthropic key stored in Wisply; the fix belongs in wisply-ai's
@@ -679,3 +679,9 @@ spec text. Not shipped in the npm package.
   standard entry (`["-y", "--prefix", "/", "@wisply/mcp@0.1.0"]`). The
   design's own snippets still have neither `--prefix /` nor the exact
   version.
+
+- **Optional unscoped name.** Release-control text now follows the revised design:
+  `@wisply` ownership and member 2FA are required. Holding the separate
+  `wisply-mcp` name is Alex's optional brand-protection decision. The ownership
+  record, final-name flag, private package setting and publication gates are
+  unchanged by this documentation correction.

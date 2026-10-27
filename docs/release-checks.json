@@ -13,6 +13,6 @@
   "npm_scope": {
     "name": "@wisply",
     "verified": false,
-    "how": "2026-10-27: npm confirmed org wisply owned by alexfallah, its sole member, with two-factor enforcement enabled. The unscoped wisply-mcp fallback is not held."
+    "how": "2026-10-27: npm confirmed org wisply owned by alexfallah, its sole member, with two-factor enforcement enabled. Ownership evidence is gathered; verified and PACKAGE_NAME_FINAL remain deferred to the release change. Holding the unscoped wisply-mcp name is optional brand protection, not a release prerequisite."
   }
 }
