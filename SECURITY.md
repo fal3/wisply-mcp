@@ -306,14 +306,14 @@ commit, before the tag is pushed, is the check (item 6).
    repository itself: `fal3/wisply-mcp` becoming public, or its README being
    submitted to any catalog, because the README and this file print the `npx`
    commands, `setup` among them): the npm organization `wisply` exists, with
-   two-factor authentication required for every member, and the unscoped
-   fallback name `wisply-mcp` is held by the same owner, so nobody else can
-   register either name and be what `npx -y` runs, or receive the tokens
-   people type into a fake `setup`. The Grok sign-up packet for the npm
-   organization (with `wisply-mcp` held too) is done before the repository
-   goes public. Alex then records `npm_scope` in `docs/release-checks.json`
-   (`verified` and `how`) and sets `PACKAGE_NAME_FINAL` to `true` in the same
-   change (`tests/pack.test.mjs` ties the two). Until then
+   two-factor authentication required for every member. Public install commands
+   use only the scoped package `@wisply/mcp`. Holding the separate unscoped
+   name `wisply-mcp` is Alex's optional brand-protection decision; no install
+   command tells anyone to fetch it from npm. Confirm ownership and 2FA before
+   naming the scoped package, then record `npm_scope` in
+   `docs/release-checks.json` (`verified` and `how`) and set
+   `PACKAGE_NAME_FINAL` to `true` in the same change
+   (`tests/pack.test.mjs` ties the two). Until then
    `clients/mcp-clients.json` says `"published": false`, and its copies in
    wisply-ai and wisply-web render nothing from it.
 2. **Before the repository is public** (git installs need it public): a

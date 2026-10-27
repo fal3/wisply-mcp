@@ -15,8 +15,8 @@
 //   published version can't change it.
 // - npm_scope: the npm organization (or, for an unscoped name, the name)
 //   PACKAGE_NAME lives under is Wisply's, with two-factor authentication
-//   required, and the unscoped fallback wisply-mcp is held by the same owner
-//   (Grok packet G-NPM; SECURITY.md "Release controls" item 1). It is what
+//   required (Grok packet G-NPM; SECURITY.md "Release controls" item 1).
+//   Holding the other unscoped name is optional brand protection. Ownership
 //   lets PACKAGE_NAME_FINAL become true (tests/pack.test.mjs ties the two),
 //   and a release needs PACKAGE_NAME_FINAL with "private" gone from
 //   package.json.
@@ -81,7 +81,7 @@ function releaseCheckProblems({ checks, source, pkg, contract: data, mcpName, pa
   }
   if (npm.verified !== true || !isText(npm.how)) {
     problems.push(`${CHECKS_FILE}: npm_scope isn't recorded: Alex owns ${owner} on npm (two-factor authentication required ` +
-      'for every member, and the unscoped wisply-mcp held by the same owner; Grok packet G-NPM), then set verified and how');
+      'for every member; Grok packet G-NPM), then set verified and how');
   }
   if (packageNameFinal !== true || Object.hasOwn(pkg ?? {}, 'private')) {
     problems.push('lib/constants.mjs PACKAGE_NAME_FINAL must be true and package.json must have no "private": ' +
@@ -135,7 +135,7 @@ test('releaseCheckProblems: a releasable tree passes, and each missing check is 
       schema: 'wisply-mcp-release-checks-v1',
       port_exclusive: { verified: true, wisply_commit: commit, how: 'MCPServer.swift binds with allowLocalEndpointReuse = false' },
       registry_namespace: { name: 'ai.wisply/local', verified: true, how: 'dns: TXT on wisply.ai, mcp-publisher login dns on 2026-11-02' },
-      npm_scope: { name: '@wisply', verified: true, how: 'npm org wisply created 2026-11-01 with 2FA required; wisply-mcp held by Alex' },
+      npm_scope: { name: '@wisply', verified: true, how: 'npm org wisply created 2026-11-01 with 2FA required for every member' },
     },
     source: { sources: [{ repository: 'github:fal3/wisply-ai', commit }] },
     pkg: { mcpName: 'ai.wisply/local' },
