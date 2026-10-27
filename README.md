@@ -6,25 +6,18 @@ Mac that runs [Wisply](https://www.wisply.ai). The connector is a small stdio
 MCP server. It talks only to the Wisply app at `127.0.0.1`, checks that it is
 talking to Wisply before it uses your token, and needs no account.
 
-> **Status: not released yet.** This package isn't on npm, and the name
-> `@wisply/mcp` is a placeholder until it is (the `wisply` npm organization
-> doesn't exist yet). Nobody owns that name on npm yet, so don't run the
-> `npx` commands below before the first release: until Wisply owns the name,
-> whoever registers it first would receive the token you type into `setup`.
-> The contract with the Wisply app is the app's own (wisply-ai
-> `Docs/mcp-contract.json`), vendored from a commit that isn't on the app's
-> `main` yet. `package.json` stays `"private"`, which makes `npm publish`
-> refuse it, until the contract is re-vendored from the app's `main` and the
-> name is Wisply's, and `WISPLY_RELEASE=1 npm test` fails and lists what is
-> still missing. Until the name is Wisply's
-> on npm (`PACKAGE_NAME_FINAL` in `lib/constants.mjs`), the connector's own
-> messages never name it: errors in your AI app point at `WISPLY_MCP_TOKEN`,
-> and terminal messages say `wisply-mcp setup`, `wisply-mcp print-config` and
-> so on (from a checkout: `node bin/wisply-mcp.mjs setup`). For the same
-> reason `print-config <app>` and `install` print and add nothing yet (exit
-> 1): every setup runs the connector through `npx`, from a name that isn't
-> Wisply's on npm yet. The `npx` commands below are what the first release
-> will print.
+> **Status: not released yet.** Wisply owns the `wisply` npm organization,
+> but `@wisply/mcp@0.1.0` has not been published. Don't run the `npx` commands
+> below before the first release. The app contract now comes from wisply-ai's
+> `main`, recorded in `contract/SOURCE.json`. `package.json` remains
+> `"private"` while the Mac, namespace and publishing checks are unfinished;
+> `WISPLY_RELEASE=1 npm test` lists the remaining requirements.
+> `PACKAGE_NAME_FINAL` remains false until the npm ownership and security
+> checks are recorded. The connector's messages still point at
+> `WISPLY_MCP_TOKEN` or the local command, such as
+> `node bin/wisply-mcp.mjs setup`. `print-config <app>` and `install` still
+> print and add nothing (exit 1). The `npx` commands below are what the first
+> release will print.
 
 ## What you need
 
